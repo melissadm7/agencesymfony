@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BiensController!{% endblock %}
+
+{% block body %}
+<div class="container">
+        <h2>Les biens</h2>
+        <div class="row flex">
+            {% for prop in props %}
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://media.istockphoto.com/photos/new-constructed-home-for-sale-picture-id454339695?k=6&m=454339695&s=612x612&w=0&h=jZMCIuJ_DqSv27_NlUXDKj5giyqzblOEke95GvBYVHU=" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ prop.title }}</h5>
+                            <p class="card-text">{{ prop.description }}</p>
+                            <div class="row">
+                            <div class="col-6">
+                                <p class="card-text">{{ prop.surface }} m²</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="card-text">{{ prop.price }} €</p>
+                            </div>
+                            </div>
+                            <a href="{{ path('biens_show', {'title' : prop.title }) }}" class="btn btn-primary">A savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

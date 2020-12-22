@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     public function index(PropRepository $repository): Response
     {
         $repo = $this->getDoctrine()->getRepository(Prop::class);
-        $prop = $repo->findAll();
+        $prop = $repo->findAll(3);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'props'=>$prop
